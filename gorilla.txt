@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace UUZooLibrary
+{
+    public class Gorilla : Mammal
+    {
+        public int NumberOfArms { get; set; }
+
+        public Gorilla(string name, string species, int age, double weight, bool hasHair, int numberOfLegs, int numberOfArms)
+            : base(name, species, age, weight, hasHair, numberOfLegs)
+        {
+            NumberOfArms = numberOfArms;
+        }
+
+        public override void DisplayDetails()
+        {
+            base.DisplayDetails();
+            Console.WriteLine($"Number of Arms: {NumberOfArms}");
+        }
+
+        public override void Eat(double amount)
+        {
+            Weight += 0.3 * amount;
+        }
+
+        public override void Fast(double hours)
+        {
+            Weight -= 3.0 * hours;
+        }
+    }
+}
