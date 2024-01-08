@@ -24,7 +24,7 @@ namespace UUZooLibrary
 
         public override void Eat(double amount)
         {
-            Weight += 0.3 * amount;
+            Weight += 3.0 * amount;
         }
 
         public override void Fast(double hours)
