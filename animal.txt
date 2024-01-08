@@ -1,0 +1,44 @@
+using System.Xml.Linq;
+using System.Xml;
+
+namespace UUZooLibrary
+{
+    public abstract class Animal
+    {
+        public int ID { get; }
+        public string Name { get; set; }
+        public string Species { get; set; }
+        public int Age { get; set; }
+        public double Weight { get; set; }
+
+        public Animal(string name, string species, int age, double weight)
+        {
+            ID = UniqueId;
+            Name = name;    
+            Species = species;
+            Age = age;
+            Weight = weight;
+        }
+
+        private static int uniqueIdCounter = 1;
+        public static int UniqueId { get; private set; }
+
+        public abstract void Eat(double amount);
+        public abstract void Fast(double hours);
+
+        static Animal()
+        {
+            UniqueId = uniqueIdCounter++;
+        }
+
+        public virtual void DisplayDetails()
+        {
+            Console.WriteLine($"ID: {ID}, Name: {Name}, Species: {Species}, Age: {Age}, Weight: {Weight}");
+        }
+
+        public override string ToString()
+        {
+            return $"ID: {ID}, Name: {Name}, Species: {Species}, Age: {Age}, Weight: {Weight}";
+        }
+    }
+}
