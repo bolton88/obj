@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace UUZooLibrary
+{
+    public class Bat : Mammal
+    {
+        public double Wingspan { get; set; }
+
+        public Bat(string name, string species, int age, double weight, int numberOfLegs, bool hasHair, double wingspan)
+            : base(name, species, age, weight, hasHair, numberOfLegs)
+        {
+            Wingspan = wingspan;
+        }
+
+        public override void DisplayDetails()
+        {
+            base.DisplayDetails();
+            Console.WriteLine($"Wingspan: {Wingspan}");
+        }
+
+        public override void Eat(double amount)
+        {
+            Weight += 0.12 * amount;
+        }
+
+        public override void Fast(double hours)
+        {
+            // Reducing the weight by 1.0 kg per hour of fasting
+            Weight -= 0.1 * hours;
+        }
+    }
+}
